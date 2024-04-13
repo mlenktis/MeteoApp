@@ -18,7 +18,7 @@
         }
     </style>
 </head>
-<body>
+<body onload = "replaceLetter()">
 
 <div class="container">
 
@@ -85,9 +85,9 @@
         var parent = element.parentElement.parentElement;
         var date = parent.getElementsByClassName("date")[0].textContent;
         var temperature = parent.getElementsByClassName("temperature")[0].textContent;
-        var city = $("#selected-city").val();
-        console.log(date, ': ', temperature);
-
+        var city = document.getElementById("selectedCity").textContent;
+        console.log(date, ': ', temperature, ': ', city);
+        //Bug: City is not selected
         jQuery.ajax({
             url: "http://localhost:8080/api/forecast",
             type: "POST",
@@ -121,15 +121,14 @@
         });
     }
 </script>
-<!--<script>-->
-<!--    function showCity() {-->
-<!--        let city = capitalizeFirstLetter($("#selected-city").val());-->
-<!--        $("#selectedCity").text(city);-->
-<!--    }-->
-<!--    function capitalizeFirstLetter(string) {-->
-<!--        return string.charAt(0).toUpperCase() + string.slice(1);-->
-<!--    }-->
-<!--</script>-->
+<script>
+    function replaceLetter(){
+        let city = document.getElementById("selectedCity").textContent;
+        city = city.charAt(0).toUpperCase() + city.slice(1);
+        document.getElementById("selectedCity").textContent = city;
+    }
+
+</script>
 
 
 </html>
