@@ -1,4 +1,8 @@
 package meteorology.meteoapp.repositories;
 
-public interface ForecastRepository /*extends CrudRepository<Forecast, Integer>*/{
+import meteorology.meteoapp.entities.ForecastEntity;
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface ForecastRepository extends CrudRepository<ForecastEntity, Integer>{
 }
