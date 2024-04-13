@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mano prognozės</title>
 </head>
 <body>
+<div class="container">
 
+    <ul th:each="forecast : ${saved}">
+        <li>
+            <span th:text="${forecast.date}"></span>
+            <span th:text="${forecast.temperature}"></span>
+        </li>
+    </ul>
+
+</div>
 </body>
 </html>

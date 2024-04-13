@@ -18,7 +18,7 @@
         }
     </style>
 </head>
-<body onload = "replaceLetter()">
+<body onload="replaceLetter()">
 
 <div class="container">
 
@@ -31,18 +31,18 @@
         </div>
     </div>
 
-<!--    <form th:action="@{/logout}" method="post">-->
-<!--        <input type="submit" value="Atsijungti"/>-->
-<!--    </form>-->
+    <!--    <form th:action="@{/logout}" method="post">-->
+    <!--        <input type="submit" value="Atsijungti"/>-->
+    <!--    </form>-->
 
-<!--    <form method="get">-->
-<!--        <select id="selected-city" name="city" onchange="this.form.submit()">-->
-<!--            <option value=""></option>-->
-<!--            <option value="vilnius" th:selected="${ForecastViewModel.selectedCity=='vilnius'}">Vilnius</option>-->
-<!--            <option value="kaunas" th:selected="${ForecastViewModel.selectedCity=='kaunas'}">Kaunas</option>-->
-<!--            <option value="klaipeda" th:selected="${ForecastViewModel.selectedCity=='klaipeda'}">Klaipėda</option>-->
-<!--        </select>-->
-<!--    </form>-->
+    <!--    <form method="get">-->
+    <!--        <select id="selected-city" name="city" onchange="this.form.submit()">-->
+    <!--            <option value=""></option>-->
+    <!--            <option value="vilnius" th:selected="${ForecastViewModel.selectedCity=='vilnius'}">Vilnius</option>-->
+    <!--            <option value="kaunas" th:selected="${ForecastViewModel.selectedCity=='kaunas'}">Kaunas</option>-->
+    <!--            <option value="klaipeda" th:selected="${ForecastViewModel.selectedCity=='klaipeda'}">Klaipėda</option>-->
+    <!--        </select>-->
+    <!--    </form>-->
     <span>
         <h1>
             Pasirinktas miestas: <span th:text="${forecastViewModel.selectedCity}" id="selectedCity"></span>
@@ -87,7 +87,6 @@
         var temperature = parent.getElementsByClassName("temperature")[0].textContent;
         var city = document.getElementById("selectedCity").textContent;
         console.log(date, ': ', temperature, ': ', city);
-        //Bug: City is not selected
         jQuery.ajax({
             url: "http://localhost:8080/api/forecast",
             type: "POST",
@@ -122,7 +121,8 @@
     }
 </script>
 <script>
-    function replaceLetter(){
+    function replaceLetter() {
+        //Replace first letter of city name to uppercase just for better view
         let city = document.getElementById("selectedCity").textContent;
         city = city.charAt(0).toUpperCase() + city.slice(1);
         document.getElementById("selectedCity").textContent = city;

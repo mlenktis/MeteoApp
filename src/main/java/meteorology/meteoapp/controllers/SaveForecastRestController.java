@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SaveForecastRestController {
     @Autowired
     private ForecastRepository forecastRepository;
+
     @PostMapping(value = "/api/forecast", consumes = "application/json")
 
     public void index(@RequestBody ForecastModel model) {
