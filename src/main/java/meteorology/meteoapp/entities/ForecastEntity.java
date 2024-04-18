@@ -23,11 +23,11 @@ public class ForecastEntity {
     @Column(name = "city")
     public String city;
     @Column(name = "userId")
-    public int userId;
+    public long userId;
     @Column(name = "dateOfCreated")
     public String dateOfCreated;
 
-    public ForecastEntity(String date, String temperature, String city, int userId) {
+    public ForecastEntity(String date, String temperature, String city, long userId) {
         this.date = date;
         this.temperature = temperature;
         this.city = city;

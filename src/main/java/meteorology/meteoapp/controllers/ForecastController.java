@@ -1,11 +1,13 @@
 package meteorology.meteoapp.controllers;
 
+import meteorology.meteoapp.entities.ForecastEntity;
 import meteorology.meteoapp.models.ForecastViewModel;
 import meteorology.meteoapp.repositories.ForecastRepository;
 import meteorology.meteoapp.services.ForecastService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,15 +33,5 @@ public class ForecastController {
 
         return modelAndView;
     }
-    @GetMapping("/saved")
-    public ModelAndView index() {
-        var modelAndView = new ModelAndView("saved");
-        var model = forecastRepository.findAll();
-
-        modelAndView.addObject("saved", model);
-        return  modelAndView;
-    }
-
-
 }
 

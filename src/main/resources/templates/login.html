@@ -2,38 +2,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <title>Prisijungimas</title>
-    <style>
-        body {
-            background-image: url("https://images.pexels.com/photos/186980/pexels-photo-186980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        header{
-            background: linear-gradient(to bottom, #000040 0%, #3333cc 100%);
-            padding: 20px;
-            text-align: center;
-            font-size: 20px;
-            color: white;
-            font-family: frutiger,sans-serif;
-        }
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 
-    </style>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet"
-          integrity="sha384-oOE/3m0LUMPub4kaC09mrdEhIc+e3exm4xOGxAmuFXhBNF4hcg/6MiAXAf5p0P56" crossorigin="anonymous">
 </head>
 <body>
 <header>
-        <h1> Oro temperatūros prognozės</h1>
+    <h1> Oro temperatūros prognozės</h1>
+    <h3> Norėdami prisijungti, įveskite vartotojo vardą ir slaptažodį</h3>
 </header>
 
 <div class="container">
-    <h3> Norėdami prisijungti, įveskite vartotojo vardą ir slaptažodį</h3>
-    <form class="form-signin" th:action="@{/login}" method="post">
+    <form class="signin" th:action="@{/login}" method="post">
         <div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert">
             Netinkamas vartotojo vardas arba slaptažodis
         </div>
@@ -50,10 +32,13 @@
         </p>
         <input name="_csrf" type="hidden"
                value="CL0I7_Rz14VIQi3-z0bTdvkywRHL6PiJld_05L0Nx3tX9QWjbYowicYX57ZlcUnG-mvnE5sF7HOvis-kpueWgo1roRgyk2eb">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Prisijungti</button>
+        <button class="btn btn-lg btn-secondary btn-block" onclick="window.location.href='/register'">Registruotis</button>
     </form>
 </div>
-<footer>
 
+<footer class="footer">
+    "MeteoApp" autorius Mikalojus Lenktis, 2024
 </footer>
 </body>
+</html>

@@ -2,8 +2,12 @@ package meteorology.meteoapp.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import meteorology.meteoapp.entities.ForecastEntity;
+import meteorology.meteoapp.entities.UserEntity;
 import meteorology.meteoapp.fields.Root;
 import meteorology.meteoapp.models.ForecastModel;
+import meteorology.meteoapp.repositories.ForecastRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

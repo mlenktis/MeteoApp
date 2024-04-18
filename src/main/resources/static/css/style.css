@@ -1,0 +1,102 @@
+body {
+    background-image: url("https://wallpaperaccess.com/download/cartoon-sky-164555");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* This ensures the footer stays at the bottom even if the content is smaller than the viewport */
+}
+
+header {
+    padding: 20px;
+    text-shadow: 2px 2px 5px black;
+}
+
+header h1 {
+    padding-bottom: 30px;
+    color: white;
+    font-size: 5em;
+    text-align: center;
+
+}
+
+header h3 {
+    color: lightgray;
+    text-align: center;
+
+}
+
+ul {
+    width: 100%;
+    text-align: center;
+    list-style-type: none;
+    padding-left: 100px;
+}
+
+div ul li {
+    padding: 10px;
+    float: left;
+    width: 300px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 7px;
+    /* Positioning the footer at the bottom */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+span h2 {
+    color: lightgray;
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+}
+
+header nav {
+    position: fixed;
+    top: 50px;
+    right: 30px;
+    text-align: left;
+    z-index: 9999;
+}
+
+nav input {
+    width: 150px;
+    margin-bottom: 5px;
+}
+
+.container {
+    padding-top: 10px;
+    flex: 1; /* This ensures the main content takes up remaining space */
+}
+
+.select {
+    width: 300px;
+}
+
+.allCities {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.saved {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.signin {
+    padding-top: 10%;
+    width: 70%;
+    padding-left: 30%;
+    padding-bottom: 30px;
+}
+
+
+

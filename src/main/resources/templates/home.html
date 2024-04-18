@@ -1,24 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 <head>
     <meta charset="UTF-8">
     <title>Pradžia</title>
     <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
-Sveiki prisijungę prie MeteoApp! <br>
-Čia bus pradinis puslapis
-Didieji miestai: <br>
-<form method="get">
-    <input type="button" value="Vilnius" onclick="window.location.href='/forecast?city=vilnius'"/>
-    <input type="button" value="Kaunas" onclick="window.location.href='/forecast?city=kaunas'"/>
-    <input type="button" value="Klaipėda" onclick="window.location.href='/forecast?city=klaipeda'"/>
-</form>
 
-<br>
-<br>
-<input type="button" value="Mano išsaugoti miestai" onclick="window.location.href='saved'"/>
+<header>
+    <nav>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" class="btn btn-light" value="Atsijungti"/>
+        </form>
+    </nav>
+    <h1>
+        Sveiki prisijungę prie MeteoApp!
+    </h1>
+    <h3>
+        Šiuoje svetainėje galima matyti oro temperatūros prognozes pasirinktame mieste.<br>
+        Išsaugotas prognozes galima peržiūrėti skirtuke "Mano prognozės".
+    </h3>
+</header>
 
+<div class="container">
+    <span><h2>Didieji miestai:</h2></span>
+
+    <div class="buttons">
+        <form method="get">
+            <ul>
+                <li>
+                    <input type="button" class="btn btn-lg btn-primary btn-block" value="Vilnius"
+                           onclick="window.location.href='/forecast?city=vilnius'"/>
+                </li>
+                <li>
+                    <input type="button" class="btn btn-lg btn-primary btn-block" value="Kaunas"
+                           onclick="window.location.href='/forecast?city=kaunas'"/>
+                </li>
+                <li>
+                    <input type="button" class="btn btn-lg btn-primary btn-block" value="Klaipėda"
+                           onclick="window.location.href='/forecast?city=klaipeda'"/>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="allCities">
+        <span><h2>Visi miestai:</h2></span>
+        <form method="get">
+            <!--                "-->
+            <select class="select" id="selected-city" name="city" onchange="navigateToCity(this)">
+                <option value=""></option>
+                <option value="vilnius" >Vilnius</option>
+                <option value="kaunas" >Kaunas</option>
+                <option value="klaipeda" >Klaipėda</option>
+                <option value="šiauliai" >Šiauliai</option>
+                <option value="panevėžys" >Panevėžys</option>
+                <option value="marijampolė" >Marijampolė</option>
+                <option value="alytus" >Alytus</option>
+                <option value="utena" >Utena</option>
+                <option value="mažeikiai" >Mažeikiai</option>
+
+            </select>
+        </form>
+
+
+    </div>
+    <div class="saved">
+        <span><input type="button" class="btn btn-lg btn-primary btn-block" value="Mano prognozės"
+                     onclick="window.location.href='saved'"/></span>
+    </div>
+</div>
+
+<footer class="footer">
+    "MeteoApp" autorius Mikalojus Lenktis, 2024
+</footer>
 
 </body>
+<script>
+    function navigateToCity(selectElement) {
+        var selectedCity = selectElement.value;
+        if (selectedCity) {
+            window.location.href = "/forecast?city=" + selectedCity;
+        }
+    }
+</script>
+
 </html>

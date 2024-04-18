@@ -11,12 +11,4 @@ public class LoginController {
     public String login() {
         return "/login";
     }
-    @PostMapping("/login")
-    public String loginOK() {
-        return "/";
-    }
-    @PostMapping("/LoginBAD")
-    public String loginPost() {
-        return "login";
-    }
 }
