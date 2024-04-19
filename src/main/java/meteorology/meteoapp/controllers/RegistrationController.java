@@ -2,6 +2,7 @@ package meteorology.meteoapp.controllers;
 
 import meteorology.meteoapp.entities.UserEntity;
 import meteorology.meteoapp.services.UserService;
+import meteorology.meteoapp.validators.PasswordValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -24,11 +25,19 @@ public class RegistrationController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@RequestParam("username") String username, @RequestParam("password") String password) {
-        var user = new UserEntity();
-        user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(password));
-        userService.save(user);
-        return "redirect:/login";
+    public String registerUser(@RequestParam("username") String username,
+                               @RequestParam("password") String password,
+                               @RequestParam("confirmPassword") String confirmPassword) {
+
+        if (PasswordValidator.isValid(password, confirmPassword)) {
+            var user = new UserEntity();
+            user.setUsername(username);
+            user.setPassword(passwordEncoder.encode(password));
+            userService.save(user);
+            return "redirect:/login";
+        } else {
+            return "redirect:/register";
+
+        }
     }
 }
